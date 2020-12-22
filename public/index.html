@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="clicker">
+      <div class="container">
+      <div class="sideLeft scoreHUD">
+        <p v-for="(cookieGenerator, generatorKey) in game.cookieGeneratorManager.auto">
+        {{game.cookieGeneratorManager.auto[generatorKey].number}}
+        </p>
+      </div>
+      <div class="clickerHUD">
+        <h2>{{game.getCookieRounded()}}</h2>
+        <h5>{{game.calculateCookiePerSeconde()}}</h5>
+        <button v-on:click="game.playerClick()">
+          <img
+            src="ressources/cookie.png"
+            alt="Click Salope"
+          />
+        </button>
+      </div>
+      <div class="sideRight autoHUD">
+        <ul>
+          <li v-for="cookieGenerator in game.cookieGeneratorManager.auto"> <!--Génére un nombre de bouton d'achat de générateur en fonction du nombre générateur dans auto-->
+            <button v-on:click="game.buyCookieGenerator(cookieGenerator)">
+              <img
+                class="buyButton"
+                v-bind:src=cookieGenerator.src
+                alt="Buy GrandMa"
+               /></button>
+            {{game.cookieGeneratorManager.getGeneratorPrice(cookieGenerator)}}
+          </li>
+        </ul>
+      </div> 
+    </div>
+    <div class="footer">
+      <div class ="footerLeft">
+        <img class="ascend" v-on:click="game.ascend()" src="https://i.redd.it/09sipga44vw31.jpg">
+        {{game.goldenCookie}}
+      </div>
+      <div class="footerRight">
+        <div class="owned">
+            <h4>Owned Artifact</h4>
+          <ul>
+            <li v-for="(artifact, artifactKey) in game.artifactManager.ownedArtifact">
+              <img 
+                v-on:click="game.levelUpOwnedArtifact(artifact)" 
+                v-bind:src=artifact.src 
+                v-bind:alt=artifact.name>
+            </li>
+          </ul>
+        </div>
+        <div class="unowned">
+          <h4>Unowned Artifact</h4>
+          <ul>
+            <li v-for="(artifact, artifactKey) in game.artifactManager.unownedArtifactList">
+              <img
+                v-on:click="game.buyNewArtifact(artifactKey)"
+                v-bind:src=artifact.src
+                v-bind:alt=artifact.name>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+  </div>
+
+
+  </div>
+
+    <script src="import/vue.min.js"></script>
+    <script src="script/cookie-generator-manager.js"></script>
+    <script src="script/artifactManager.js"></script>
+    <script src="script/game.js"></script>
+    <script src="script/vue.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+.container {
+  width: 100vw;
+  height:70vh;
+  display: flex;
+}
+
+.sideLeft {
+  width: 20vw;
+}
+
+.sideRight {
+  width: 40vw;
+}
+
+.clickerHUD {
+  text-align: center;
+  width: 40vw;
+}
+
+.clickerHUD button {
+  width:70%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.clickerHUD button img{
+  width:100%;
+}
+
+.autoHUD ul {
+  list-style: none;
+}
+
+.autoHUD button {
+  width: 20%;
+  margin-right: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.buyButton {
+  width: 100%;
+}
+
+.ascend{
+  width:100px;
+  height:110px;
+}
+
+.footer{
+  display:flex;
+}
+
+.footerLeft{
+  width:20%;
+}
+
+.footerRight{
+  display: flex;
+  width:80%;
+}
+
+.footerRight .owned{
+  width:30%;
+}
+
+.footerRight .unowned{
+  width:70%;
+}
+
+.footerRight ul{
+  display:flex;
+  list-style: none;
+  padding:0;
+}
+
+.footerRight ul li{
+  width:10%;
+}
+
+.footerRight img{
+  width:100%;
+}

@@ -1,6 +1,8 @@
 this project run with express :
 
--npm install express
+-npm install 
+
+to install all dependencies
 
 then run it with :
 
